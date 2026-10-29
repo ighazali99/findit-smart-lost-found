@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101827" />
+  <title>FindIt — Smart Lost & Found</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="FindIt home">
+      <span class="brand-mark">F</span>
+      <span>Find<span class="brand-accent">It</span><small>SMART LOST &amp; FOUND</small></span>
+    </a>
+    <span class="status"><span class="status-dot"></span> MATCHING ASSISTANT</span>
+  </header>
+
+  <main class="layout">
+    <section class="intro">
+      <div class="eyebrow"><span class="eyebrow-line"></span> LOST SOMETHING? FOUND SOMETHING?</div>
+      <h1>Every lost item<br />deserves a <span>way back.</span></h1>
+      <p class="intro-copy">Report an item and let FindIt compare its details with existing reports to suggest possible matches.</p>
+      <div class="feature-row">
+        <div class="feature-icon">⌕</div>
+        <div><strong>Smart matching</strong><p>Compares item details, location and date.</p></div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-icon">✓</div>
+        <div><strong>Human verified</strong><p>Suggestions are not confirmed matches.</p></div>
+      </div>
+      <div class="privacy-note"><span>ⓘ</span> Use a contact email you are comfortable sharing in your class prototype.</div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div><span class="section-kicker">NEW REPORT</span><h2>Tell us about the item</h2></div>
+        <span class="step-pill">01 / REPORT</span>
+      </div>
+
+      <form id="reportForm">
+        <fieldset class="type-picker">
+          <legend>What happened?</legend>
+          <label class="type-option selected" id="lostOption">
+            <input type="radio" name="reportType" value="Lost" checked />
+            <span class="type-symbol">↗</span><span><strong>I lost an item</strong><small>Help me find it</small></span>
+          </label>
+          <label class="type-option" id="foundOption">
+            <input type="radio" name="reportType" value="Found" />
+            <span class="type-symbol">⌖</span><span><strong>I found an item</strong><small>Help return it</small></span>
+          </label>
+        </fieldset>
+
+        <div class="form-grid">
+          <label class="field">
+            <span>ITEM NAME <b>*</b></span>
+            <input name="itemName" required maxlength="100" placeholder="e.g. Black backpack" />
+          </label>
+          <label class="field">
+            <span>DATE <b>*</b></span>
+            <input name="date" type="date" required />
+          </label>
+          <label class="field full">
+            <span>DESCRIPTION <b>*</b></span>
+            <textarea name="description" required maxlength="600" rows="3" placeholder="Colour, brand, stickers or other details…"></textarea>
+          </label>
+          <label class="field full">
+            <span>LOCATION <b>*</b></span>
+            <input name="location" required maxlength="160" placeholder="Where was it lost or found?" />
+          </label>
+          <label class="field full">
+            <span>CONTACT EMAIL <span class="optional">(optional)</span></span>
+            <input name="contactEmail" type="email" maxlength="160" placeholder="you@example.com" />
+          </label>
+        </div>
+
+        <button id="submitButton" class="submit-button" type="submit">
+          <span>Submit report &amp; find matches</span><span class="button-arrow">↗</span>
+        </button>
+        <p class="form-footnote">Your report is saved to the project dataset. Match suggestions require human verification.</p>
+      </form>
+
+      <section id="resultCard" class="result-card" aria-live="polite" hidden>
+        <div class="result-top"><span class="result-icon">✦</span><span class="section-kicker">MATCHING RESULT</span><span id="resultBadge" class="result-badge">COMPLETE</span></div>
+        <p id="resultText" class="result-text"></p>
+        <p class="result-note">Please verify any suggested match before contacting someone or collecting an item.</p>
+        <button id="newReportButton" class="secondary-button" type="button">Submit another report <span>↻</span></button>
+      </section>
+
+      <p id="errorMessage" class="error-message" role="alert" hidden></p>
+    </section>
+  </main>
+  <footer><span>FindIt © 2026</span><span>Student prototype · Powered by n8n + Groq</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
